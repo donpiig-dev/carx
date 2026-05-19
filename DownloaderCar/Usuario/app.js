@@ -230,3 +230,25 @@ function hideStatusContainer() {
 
 // Inicialización de la aplicación
 checkUserAuth();
+
+// ⚡ ESCUCHADOR EN TIEMPO REAL (REALTIME)
+// Nos suscribimos a cualquier cambio (INSERT, UPDATE, DELETE) en la tabla 'videos'
+supabase
+  .channel('cambios-en-videos') // Nombre del canal que quieras
+  .on(
+    'postgres_changes', 
+    { 
+      event: '*', // Escucha inserciones, ediciones y eliminaciones
+      schema: 'public', 
+      table: 'videos' 
+    }, 
+    (payload) => {
+      console.log("¡Cambio detectado en la nube en tiempo real!", payload);
+      
+      // 🟢 Si el usuario tiene la sesión iniciada, refrescamos la tabla automáticamente
+      if (localStorage.getItem('isUserLoggedIn') === 'true') {
+        loadVideosFromCloud(); 
+      }
+    }
+  )
+  .subscribe();
