@@ -1,0 +1,61 @@
+:root {
+  --bg: #1e1e2e;
+  --card-bg: #252538;
+  --text: #cdd6f4;
+  --primary: #74c7ec;
+  --danger: #f38ba8;
+  --accent: #a6e3a1;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #45475a;
+  background: #313244;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+button {
+  background: var(--primary);
+  color: #11111b;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover { opacity: 0.9; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-edit { background: var(--accent); color: #11111b; width: auto; display: inline-block; padding: 6px 12px; }
+.btn-delete { background: var(--danger); color: white; width: auto; display: inline-block; padding: 6px 12px; }
+
+.hidden { display: none !important; }
+.error { color: var(--danger); font-size: 0.9rem; }
+
+/* Tabla responsiva */
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #45475a; }
+td { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

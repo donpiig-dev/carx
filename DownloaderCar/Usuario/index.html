@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VM Player - Descargas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <div id="login-section" class="card">
+    <h2>Acceso de Usuario</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar al Reproductor</button>
+    </form>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <div id="player-section" class="hidden">
+    <header>
+      <h1>Mis Videos Pendientes</h1>
+      <button id="logout-btn" class="btn-danger">Salir</button>
+    </header>
+
+    <div id="status-container" class="card hidden">
+      <p id="status-text">Procesando enlace...</p>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Enlaces Listos</h3>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Video</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="videolist">
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
